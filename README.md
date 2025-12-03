@@ -1,2 +1,5 @@
-# sido-sarl
-sido fidelisation
+# SIDO SARL — Repo officiel
+Branches :
+- dev (par défaut)
+- staging
+- main
