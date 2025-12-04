@@ -1,1 +1,29 @@
-node_modules
+# Environment variables
+.env
+.env.*
+*.local
+
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+
+# Build outputs
+dist/
+build/
+
+# Coverage reports
+coverage/
+
+# Logs
+pnpm-debug.log*
+npm-debug.log*
+
+# Keys and certificates
+*.pem
+*.key
+
+# OS generated files
+.DS_Store
+Thumbs.db

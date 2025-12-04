@@ -1,0 +1,41 @@
+name: "CI Build & Test"
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install pnpm
+      run: npm install -g pnpm
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+
+    - name: Build admin-web
+      run: pnpm --filter admin-web build
+
+    - name: Lint backend
+      run: pnpm --filter backend lint
+
+    - name: Lint admin-web
+      run: pnpm --filter admin-web lint
+
+    - name: Test backend
+      run: pnpm --filter backend test
+
+    - name: Test admin-web
+      run: pnpm --filter admin-web test

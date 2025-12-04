@@ -1,0 +1,73 @@
+/* ============================
+   STYLES GLOBAUX DE L'APPLICATION
+============================ */
+
+/* Reset CSS et styles de base */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body global */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb; /* gris clair neutre */
+  color: #111827; /* texte sombre */
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Titres principaux */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Liens */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Listes */
+ul, ol {
+  list-style: none;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* ============================
+   UTILITAIRES GLOBAUX
+============================ */
+.hidden {
+  display: none !important;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
