@@ -7,6 +7,10 @@ import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 
+/* ============================
+   TYPES
+============================ */
+
 interface Rule {
   _id: string
   name: string
@@ -28,6 +32,12 @@ interface Rule {
   effectiveFrom: string
   effectiveTo?: string
 }
+
+type RuleType = 'points_per_liter' | 'bonus_threshold' | 'segment_multiplier'
+
+/* ============================
+   COMPOSANT PRINCIPAL : RulesPage
+============================ */
 
 export default function RulesPage() {
   const [selectedRule, setSelectedRule] = useState<Rule | null>(null)
@@ -153,7 +163,7 @@ export default function RulesPage() {
                           </Button>
                           <Button
                             size="sm"
-                            variant="destructive"
+                            variant="danger"
                             onClick={() => handleDeleteRule(rule._id)}
                           >
                             Supprimer
@@ -183,6 +193,10 @@ export default function RulesPage() {
     </div>
   )
 }
+
+/* ============================
+   COMPOSANT MODAL : RuleFormModal
+============================ */
 
 function RuleFormModal({
   rule,
@@ -238,7 +252,12 @@ function RuleFormModal({
               <label className="block text-sm font-medium text-gray-700">Type</label>
               <select
                 value={formData.type}
-                onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    type: e.target.value as RuleType
+                  })
+                }
                 className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
               >
                 <option value="points_per_liter">Points par litre</option>

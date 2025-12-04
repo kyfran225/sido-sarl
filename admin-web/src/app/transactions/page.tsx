@@ -132,7 +132,7 @@ export default function TransactionsPage() {
                           </Button>
                           <Button
                             size="sm"
-                            variant="destructive"
+                            variant="danger"
                             onClick={() => handleCancelTransaction(transaction._id)}
                           >
                             Annuler

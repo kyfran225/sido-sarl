@@ -66,7 +66,7 @@ export default function LoginPage() {
 
             <div>
               <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-                Nom d'utilisateur
+                Nom d&apos;utilisateur
               </label>
               <Input
                 id="username"

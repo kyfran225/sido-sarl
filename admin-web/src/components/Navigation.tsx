@@ -1,28 +1,50 @@
-const navigation = [
-  { name: 'Tableau de Bord', href: '/', icon: '📊' },
-  { name: 'Clients', href: '/clients', icon: '👥' },
-  { name: 'Transactions', href: '/transactions', icon: '💰' },
-  { name: 'Règles', href: '/rules', icon: '⚙️' },
-  { name: 'Rapports', href: '/reports', icon: '📈' },
-  { name: 'Audit', href: '/audit', icon: '🔍' },
+"use client"
+
+/* ============================
+   BARRE DE NAVIGATION PRINCIPALE
+============================ */
+import { FC } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+/* ============================
+   TYPES
+============================ */
+interface NavItem {
+  label: string
+  href: string
+}
+
+const navItems: NavItem[] = [
+  { label: 'Dashboard', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Clients', href: '/clients' },
+  { label: 'Paramètres', href: '/settings' },
 ]
 
-export function Navigation() {
+/* ============================
+   COMPOSANT NAVIGATION
+============================ */
+export const Navigation: FC = () => {
+  const pathname = usePathname()
+
   return (
-    <nav className="bg-sido-primary text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="flex space-x-4">
-          {navigation.map((item) => (
-            <a
-              key={item.name}
+    <nav className="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+      <div className="text-xl font-bold text-green-600">SIDO Admin</div>
+      <ul className="flex space-x-6">
+        {navItems.map((item) => (
+          <li key={item.href}>
+            <Link
               href={item.href}
-              className="hover:bg-sido-secondary px-3 py-2 rounded"
+              className={`hover:text-green-700 ${
+                pathname === item.href ? 'text-green-800 font-semibold' : 'text-gray-700'
+              }`}
             >
-              {item.icon} {item.name}
-            </a>
-          ))}
-        </div>
-      </div>
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </nav>
   )
 }

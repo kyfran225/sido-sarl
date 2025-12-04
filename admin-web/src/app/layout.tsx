@@ -1,51 +1,37 @@
 /* ============================
-   FICHIER : src/app/layout.tsx
+   LAYOUT PRINCIPAL DE L'APPLICATION
 ============================ */
-
-'use client'  // Obligatoire pour Next.js 14 côté client
-
-/* ============================
-   IMPORTS
-============================ */
-import { Inter } from 'next/font/google'
 import './globals.css'
+import { ReactNode } from 'react'
 import { Navigation } from '@/components/Navigation'
 import { QueryProvider } from '@/providers/QueryProvider'
 
 /* ============================
-   FONTS
+   TYPOGRAPHIE GLOBALE
 ============================ */
+import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 /* ============================
-   TYPES
+   ROOT LAYOUT
 ============================ */
-interface RootLayoutProps {
-  children: React.ReactNode
-}
-
-/* ============================
-   COMPOSANT ROOT LAYOUT
-============================ */
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
+      <head>
+        <title>SIDO Admin - Programme de Fidélisation Points Verts</title>
+        <meta
+          name="description"
+          content="Interface d'administration SIDO SARL"
+        />
+      </head>
       <body className={inter.className}>
-        {/* ============================
-            QUERY PROVIDER GLOBAL
-        ============================ */}
+        {/* Provider pour les requêtes API et cache global */}
         <QueryProvider>
-          {/* ============================
-              NAVIGATION
-          ============================ */}
+          {/* Navigation principale */}
           <Navigation />
-
-          {/* ============================
-              CONTENU PRINCIPAL
-          ============================ */}
-          <main className="bg-sido-bg min-h-screen">
-            {children}
-          </main>
+          {/* Contenu de la page */}
+          <main>{children}</main>
         </QueryProvider>
       </body>
     </html>
