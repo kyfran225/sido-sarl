@@ -1,0 +1,10 @@
+{
+  "name": "sido-sarl",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "admin-web",
+    "backend",
+    "packages/*"
+  ]
+}
