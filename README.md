@@ -17,41 +17,39 @@ sido-sarl/
 └── docs/             # Documentation
 ```
 
-### Technologies
+## 🛠️ Tech Stack Summary
 
-#### Backend
+### Backend
 - **Node.js** + **Express.js**
 - **MongoDB** avec **Mongoose**
 - **JWT** pour l'authentification
 - **bcrypt** pour le hashage des mots de passe
 - **Winston** pour les logs
 
-#### Mobile (Pompiste)
+### Mobile (Pompiste)
 - **React Native** + **Expo**
 - **TypeScript**
 - **expo-sqlite** pour la base locale
 - **expo-barcode-scanner** pour QR codes
 - **@tanstack/react-query** pour la gestion des données
 
-#### Web Admin
+### Web Admin
 - **Next.js 14** + **TypeScript**
 - **Tailwind CSS** pour le styling
 - **@tanstack/react-query** pour les API calls
 - **Cypress** pour les tests E2E
 
-#### Partagé
+### Partagé
 - **TypeScript** pour les types
 - **ESLint** + **Prettier** pour la qualité du code
 
-## 🚀 Démarrage Rapide
+## 📦 Installation Steps
 
 ### Prérequis
 - **Node.js** 18+
 - **pnpm** (recommandé) ou npm
 - **MongoDB** (local ou Atlas)
 - **Expo CLI** pour le mobile
-
-### Installation
 
 1. **Cloner le repo**
    ```bash
@@ -64,31 +62,7 @@ sido-sarl/
    pnpm install
    ```
 
-3. **Configuration des variables d'environnement**
-
-   **Backend (.env)**
-   ```env
-   NODE_ENV=development
-   PORT=3001
-   MONGODB_URI=mongodb://localhost:27017/sido
-   JWT_SECRET=your-super-secret-jwt-key
-   JWT_REFRESH_SECRET=your-refresh-secret-key
-   BATCH_MAX_SIZE=200
-   ```
-
-   **Admin Web (.env.local)**
-   ```env
-   NEXT_PUBLIC_API_URL=http://localhost:3001/api
-   NEXT_PUBLIC_APP_ENV=development
-   ```
-
-   **Mobile (.env)**
-   ```env
-   EXPO_PUBLIC_API_URL=http://localhost:3001/api
-   EXPO_PUBLIC_APP_ENV=development
-   ```
-
-4. **Démarrer MongoDB**
+3. **Démarrer MongoDB**
    ```bash
    # Avec Docker
    docker run -d -p 27017:27017 --name mongodb mongo:latest
@@ -96,31 +70,53 @@ sido-sarl/
    # Ou installer MongoDB localement
    ```
 
-5. **Seeder la base de données**
+4. **Seeder la base de données**
    ```bash
    cd backend
    npm run seed
    ```
 
-6. **Démarrer les services**
+## 🚀 How to Run Backend
 
-   **Terminal 1 - Backend**
-   ```bash
-   cd backend
-   npm run dev
-   ```
+```bash
+cd backend
+npm run dev
+```
 
-   **Terminal 2 - Admin Web**
-   ```bash
-   cd admin-web
-   npm run dev
-   ```
+Le backend sera disponible sur `http://localhost:3001`.
 
-   **Terminal 3 - Mobile**
-   ```bash
-   cd mobile
-   npm start
-   ```
+## 🚀 How to Run Admin
+
+```bash
+cd admin-web
+npm run dev
+```
+
+L'interface admin sera disponible sur `http://localhost:3000`.
+
+## 🔧 Environment Variables Reference
+
+### Backend (.env)
+```env
+NODE_ENV=development
+PORT=3001
+MONGODB_URI=mongodb://localhost:27017/sido
+JWT_SECRET=your-super-secret-jwt-key
+JWT_REFRESH_SECRET=your-refresh-secret-key
+BATCH_MAX_SIZE=200
+```
+
+### Admin Web (.env.local)
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3001/api
+NEXT_PUBLIC_APP_ENV=development
+```
+
+### Mobile (.env)
+```env
+EXPO_PUBLIC_API_URL=http://localhost:3001/api
+EXPO_PUBLIC_APP_ENV=development
+```
 
 ## 📱 Utilisation
 
