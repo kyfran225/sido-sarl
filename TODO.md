@@ -1,6 +1,9 @@
-# CI Workflow Implementation TODO
+# TODO: Fix npm config error and Next.js warnings
 
-- [ ] Create .github/workflows/ci.yml with CI Build & Test workflow
-  - [ ] Define workflow name: "CI Build & Test"
-  - [ ] Set triggers: push to main/master and pull requests
-  - [ ] Add steps: checkout, setup Node.js, install pnpm, pnpm install, build admin-web, lint backend, lint admin-web, test backend, test admin-web
+## Completed Tasks
+- [x] Remove `package-manager=pnpm` from `.npmrc` to fix npm config warnings and workspace errors
+- [x] Remove deprecated `experimental.appDir: true` from `admin-web/next.config.js` (stable in Next.js 14)
+
+## Notes
+- Use `pnpm` for all package management commands in this monorepo
+- Example commands: `pnpm install`, `pnpm dev`, `pnpm --filter admin-web dev`

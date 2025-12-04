@@ -2,3 +2,7 @@ packages:
   - 'admin-web'
   - 'backend'
   - 'packages/*'
+
+ignoredBuiltDependencies:
+  - cypress
+  - unrs-resolver
